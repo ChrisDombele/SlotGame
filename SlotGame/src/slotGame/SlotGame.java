@@ -3,7 +3,7 @@ package slotGame;
 public class SlotGame {
 
 	public static void main(String[] args) {
-		System.out.print("random");
+		System.out.print("random3");
 
 	}
 
