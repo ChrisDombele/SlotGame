@@ -28,9 +28,9 @@ public class SlotGame extends Application {
 		HBox hBox = new HBox(50);
 		hBox.setAlignment(Pos.CENTER);
 		hBox.setPadding(new Insets(0,0,0,0));
-		hBox.getChildren().add(new ImageView("image/card/" + list.get(0) + ".png"));
-		hBox.getChildren().add(new ImageView("image/card/" + list.get(1) + ".png"));
-		hBox.getChildren().add(new ImageView("image/card/" + list.get(2) + ".png"));
+		hBox.getChildren().add(new ImageView("image/" + list.get(0) + ".png"));
+		hBox.getChildren().add(new ImageView("image/" + list.get(1) + ".png"));
+		hBox.getChildren().add(new ImageView("image/" + list.get(2) + ".png"));
 		
 		// Create buttons
 		HBox hBtnBox = new HBox(10);
@@ -42,9 +42,9 @@ public class SlotGame extends Application {
 			java.util.Collections.shuffle(list);
 			
 			hBox.getChildren().clear();
-			hBox.getChildren().add(new ImageView("image/card/" + list.get(0) + ".png"));
-			hBox.getChildren().add(new ImageView("image/card/" + list.get(1) + ".png"));
-			hBox.getChildren().add(new ImageView("image/card/" + list.get(2) + ".png"));
+			hBox.getChildren().add(new ImageView("image/" + list.get(0) + ".png"));
+			hBox.getChildren().add(new ImageView("image/" + list.get(1) + ".png"));
+			hBox.getChildren().add(new ImageView("image/" + list.get(2) + ".png"));
 
 		});
 		
