@@ -25,54 +25,54 @@ public class SlotGame extends Application {
 		// Use the static shuffle method in the java.util.Collections class.
 		java.util.Collections.shuffle(list);
 
-		HBox hBox = new HBox(5);
+		HBox hBox = new HBox(50);
 		hBox.setAlignment(Pos.CENTER);
-		hBox.setPadding(new Insets(5,0,0,0));
+		hBox.setPadding(new Insets(0,0,0,0));
 		hBox.getChildren().add(new ImageView("image/card/" + list.get(0) + ".png"));
 		hBox.getChildren().add(new ImageView("image/card/" + list.get(1) + ".png"));
 		hBox.getChildren().add(new ImageView("image/card/" + list.get(2) + ".png"));
-		hBox.getChildren().add(new ImageView("image/card/" + list.get(3) + ".png"));
-		hBox.getChildren().add(new ImageView("image/card/" + list.get(4) + ".png"));
 		
 		// Create buttons
 		HBox hBtnBox = new HBox(10);
 		hBtnBox.setAlignment(Pos.CENTER);
 		hBtnBox.setPadding(new Insets(5,0,5,0));
 		
-		Button btRefresh = new Button("Refresh");
-		btRefresh.setOnAction(e -> {
+		Button btSpin = new Button("Spin");
+		btSpin.setOnAction(e -> {
 			java.util.Collections.shuffle(list);
 			
 			hBox.getChildren().clear();
 			hBox.getChildren().add(new ImageView("image/card/" + list.get(0) + ".png"));
 			hBox.getChildren().add(new ImageView("image/card/" + list.get(1) + ".png"));
 			hBox.getChildren().add(new ImageView("image/card/" + list.get(2) + ".png"));
-			hBox.getChildren().add(new ImageView("image/card/" + list.get(3) + ".png"));
-			hBox.getChildren().add(new ImageView("image/card/" + list.get(4) + ".png"));
+
 		});
 		
-		Button btSort = new Button("Sort");
-		btSort.setOnAction(e -> {
-			java.util.Collections.sort(list.subList(0, 5));
+		Button btAddMoney = new Button("Play Again");
+		
+//		
+//		Button btSort = new Button("Sort");
+//		btSort.setOnAction(e -> {
+//			java.util.Collections.sort(list.subList(0, 5));
 			
-			hBox.getChildren().clear();
-			hBox.getChildren().add(new ImageView("image/card/" + list.get(0) + ".png"));
-			hBox.getChildren().add(new ImageView("image/card/" + list.get(1) + ".png"));
-			hBox.getChildren().add(new ImageView("image/card/" + list.get(2) + ".png"));
-			hBox.getChildren().add(new ImageView("image/card/" + list.get(3) + ".png"));
-			hBox.getChildren().add(new ImageView("image/card/" + list.get(4) + ".png"));
-		});
+//			hBox.getChildren().clear();
+//			hBox.getChildren().add(new ImageView("image/card/" + list.get(0) + ".png"));
+//			hBox.getChildren().add(new ImageView("image/card/" + list.get(1) + ".png"));
+//			hBox.getChildren().add(new ImageView("image/card/" + list.get(2) + ".png"));
+//			hBox.getChildren().add(new ImageView("image/card/" + list.get(3) + ".png"));
+//			hBox.getChildren().add(new ImageView("image/card/" + list.get(4) + ".png"));
+//		});
 		
-		hBtnBox.getChildren().addAll(btRefresh, btSort);
+		hBtnBox.getChildren().addAll(btSpin, btAddMoney);
 		
 		BorderPane pane = new BorderPane();
 		pane.setCenter(hBox);
 		pane.setBottom(hBtnBox);
-		BorderPane.setAlignment(btRefresh, Pos.TOP_CENTER);
+		BorderPane.setAlignment(btSpin, Pos.CENTER);
 
 		// Create a scene and place it in the stage
-		Scene scene = new Scene(pane, 400, 150);
-		primaryStage.setTitle("Lab10_Problem1"); // Set the stage title
+		Scene scene = new Scene(pane, 600, 400);
+		primaryStage.setTitle("Slot Game"); // Set the stage title
 		primaryStage.setScene(scene); // Place the scene in the stage
 		primaryStage.show(); // Display the stage
 	}
