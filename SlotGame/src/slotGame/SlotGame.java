@@ -14,70 +14,55 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class SlotGame extends Application {
-	Random rand = new Random();
+	Random random = new Random();
 	@Override
 	public void start(Stage primaryStage) {
-		int i;
 		ArrayList<Integer> list = new ArrayList<>();
-		for (i = 1; i <= 6; i++) {
+		for (int i = 1; i <= 6; i++) {
 			list.add(i);
 			
 		}
 		
-//		int value = rand.nextInt(list);
-		
-//		int n = new rand.nextInt(6)+1;
-//		int random0 = (int) (Math.random() * 6 + 1);
-//		int random1 = (int) (Math.random() * 7 + 1);
-//		int random2 = (int) (Math.random() * 5 + 1);
-		
-		
-		// Use the static shuffle method in the java.util.Collections class.
+		// Randomizes the picture that will show up
+		int value = random.nextInt(3);
+		int value1 = random.nextInt(3);
+		int value2 = random.nextInt(3);
+	
 		java.util.Collections.shuffle(list);
 
 		HBox hBox = new HBox(50);
 		hBox.setAlignment(Pos.CENTER);
 		hBox.setPadding(new Insets(0,0,0,0));
-		/*
-		hBox.getChildren().add(new ImageView("image/" + list.get(10) + ".png"));
-		hBox.getChildren().add(new ImageView("image/" + list.get(11) + ".png"));
-		hBox.getChildren().add(new ImageView("image/" + list.get(1) + ".png"));
-		*/
-		hBox.getChildren().add(new ImageView("image/1.png"));
-		hBox.getChildren().add(new ImageView("image/11.png"));
-		hBox.getChildren().add(new ImageView("image/1.png"));
 		
-		
+		hBox.getChildren().add(new ImageView("image/" + list.get(value) + ".png"));
+		hBox.getChildren().add(new ImageView("image/" + list.get(value1) + ".png"));
+		hBox.getChildren().add(new ImageView("image/" + list.get(value2) + ".png"));
+			
 		// Create buttons
 		HBox hBtnBox = new HBox(10);
 		hBtnBox.setAlignment(Pos.CENTER);
 		hBtnBox.setPadding(new Insets(5,0,5,0));
 
-		
 		Button btSpin = new Button("Spin");
 		btSpin.setOnAction(e -> {
 			java.util.Collections.shuffle(list);
-			
 			hBox.getChildren().clear();
 			
-			/*
-			hBox.getChildren().add(new ImageView("image/" + list.get(13) + ".png"));
-			hBox.getChildren().add(new ImageView("image/" + list.get(12) + ".png"));
-			hBox.getChildren().add(new ImageView("image/" + list.get(2) + ".png"));
-			
-			hBox.getChildren().add(new ImageView("image/" + list.get(10) + ".png"));
-			hBox.getChildren().add(new ImageView("image/" + list.get(11) + ".png"));
+			hBox.getChildren().add(new ImageView("image/" + list.get(0) + ".png"));
 			hBox.getChildren().add(new ImageView("image/" + list.get(1) + ".png"));
-			*/
-			
-			
+			hBox.getChildren().add(new ImageView("image/" + list.get(2) + ".png"));
+
 //			this is where the points calculator should go
 
 		});
 		
-		Button btAddMoney = new Button("Play Again");
+		Button btPlayAgain = new Button("Play Again");
+		btPlayAgain.setOnAction(e -> {
+			
+			//This is where the SlotGame scene switches back to the main screen
+		});
 		
-		hBtnBox.getChildren().addAll(btSpin, btAddMoney);
+		hBtnBox.getChildren().addAll(btSpin, btPlayAgain);
 		
 		BorderPane pane = new BorderPane();
 		pane.setCenter(hBox);
@@ -91,11 +76,6 @@ public class SlotGame extends Application {
 		primaryStage.show(); // Display the stage
 	}
 
-	/**
-	 * The main method is only needed for the IDE with limited JavaFX support.
-	 * Not needed for running from the command line.
-	 */
-	
 	public static void main(String[] args) {
 		Application.launch(args);
 	}
