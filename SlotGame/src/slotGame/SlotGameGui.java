@@ -79,7 +79,6 @@ public class SlotGameGui extends Application {
     		int value = random.nextInt(3);
     		int value1 = random.nextInt(3);
     		int value2 = random.nextInt(3);
-    	
     		
     		java.util.Collections.shuffle(list);
 
@@ -109,10 +108,11 @@ public class SlotGameGui extends Application {
 
     		});
     		
+    		//This is where the SlotGame scene switches back to the main screen
     		Button btPlayAgain = new Button("Play Again");
     		btPlayAgain.setOnAction(e -> {
-    			//This is where the SlotGame scene switches back to the main screen
     			window.setScene(scene1);
+    			
     		});
     		
     		hBtnBox.getChildren().addAll(btSpin, btPlayAgain);
