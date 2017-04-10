@@ -19,11 +19,14 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class SlotGameGui extends Application {
+	
 
     Stage window;
-    Scene scene1, scene2;
-
-   //First scene
+    Scene scene1, scene2, scene3;
+    
+   /*
+    * Main Screen
+    */
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -65,13 +68,13 @@ public class SlotGameGui extends Application {
         
         Scene scene1 = new Scene(grid, 552, 300);
         
-//        ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-        
-        //Second scene
+        /*
+         * Game Menu
+         */
     		Random random = new Random();
     	
     		ArrayList<Integer> list = new ArrayList<>();
-    		for (int i = 1; i <= 6; i++) {
+    		for (int i = 1; i <= 13; i++) {
     			list.add(i);
     		}
     		
@@ -79,6 +82,7 @@ public class SlotGameGui extends Application {
     		int value = random.nextInt(3);
     		int value1 = random.nextInt(3);
     		int value2 = random.nextInt(3);
+    	
     		
     		java.util.Collections.shuffle(list);
 
@@ -104,20 +108,30 @@ public class SlotGameGui extends Application {
     			hBox.getChildren().add(new ImageView("image/" + list.get(1) + ".png"));
     			hBox.getChildren().add(new ImageView("image/" + list.get(2) + ".png"));
 
+    			
+    			
 //    			this is where the points calculator should go Eric
 
     		});
     		
-    		//This is where the SlotGame scene switches back to the main screen
+    		Button btTrials = new Button("Trials till Jackpot");
+    		
+//    		btTrials.setOnAction(e -> {
+//    			window.setScene(scene3);
+//    		});
+    		BorderPane pane = new BorderPane();
+//    		//Scene 3
+//    		scene3 = new Scene (pane, 600, 400);
+    		
     		Button btPlayAgain = new Button("Play Again");
     		btPlayAgain.setOnAction(e -> {
+    			//This is where the SlotGame scene switches back to the main screen
     			window.setScene(scene1);
-    			
     		});
     		
-    		hBtnBox.getChildren().addAll(btSpin, btPlayAgain);
+    		hBtnBox.getChildren().addAll(btSpin, btPlayAgain, btTrials);
     		
-    		BorderPane pane = new BorderPane();
+    		
     		pane.setCenter(hBox);
     		pane.setBottom(hBtnBox);
     		BorderPane.setAlignment(btSpin, Pos.CENTER);
