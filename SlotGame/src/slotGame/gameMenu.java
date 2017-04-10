@@ -13,7 +13,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-public class SlotGame extends Application {
+public class gameMenu extends Application {
 	Random random = new Random();
 	@Override
 	public void start(Stage primaryStage) {
@@ -58,8 +58,8 @@ public class SlotGame extends Application {
 		
 		Button btPlayAgain = new Button("Play Again");
 		btPlayAgain.setOnAction(e -> {
-			
 			//This is where the SlotGame scene switches back to the main screen
+			
 		});
 		
 		hBtnBox.getChildren().addAll(btSpin, btPlayAgain);
@@ -70,9 +70,9 @@ public class SlotGame extends Application {
 		BorderPane.setAlignment(btSpin, Pos.CENTER);
 
 		// Create a scene and place it in the stage
-		Scene scene = new Scene(pane, 600, 400);
+		Scene scene2 = new Scene(pane, 600, 400);
 		primaryStage.setTitle("Slot Game"); // Set the stage title
-		primaryStage.setScene(scene); // Place the scene in the stage
+		primaryStage.setScene(scene2); // Place the scene in the stage
 		primaryStage.show(); // Display the stage
 	}
 
