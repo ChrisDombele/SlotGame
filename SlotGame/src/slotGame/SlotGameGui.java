@@ -19,10 +19,11 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class SlotGameGui extends Application {
+	
 
     Stage window;
-    Scene scene1, scene2;
-
+    Scene scene1, scene2, scene3;
+    BorderPane pane = new BorderPane();
    //First scene
 
     @Override
@@ -71,7 +72,7 @@ public class SlotGameGui extends Application {
     		Random random = new Random();
     	
     		ArrayList<Integer> list = new ArrayList<>();
-    		for (int i = 1; i <= 6; i++) {
+    		for (int i = 1; i <= 13; i++) {
     			list.add(i);
     		}
     		
@@ -105,9 +106,20 @@ public class SlotGameGui extends Application {
     			hBox.getChildren().add(new ImageView("image/" + list.get(1) + ".png"));
     			hBox.getChildren().add(new ImageView("image/" + list.get(2) + ".png"));
 
+    			
+    			
 //    			this is where the points calculator should go Eric
 
     		});
+    		
+    		Button btTrials = new Button("Trials till Jackpot");
+    		
+    		btTrials.setOnAction(e -> {
+    			window.setScene(scene3);
+    		});
+    		
+    		//Scene 3
+    		scene3 = new Scene (pane, 600, 400);
     		
     		Button btPlayAgain = new Button("Play Again");
     		btPlayAgain.setOnAction(e -> {
@@ -115,9 +127,9 @@ public class SlotGameGui extends Application {
     			window.setScene(scene1);
     		});
     		
-    		hBtnBox.getChildren().addAll(btSpin, btPlayAgain);
+    		hBtnBox.getChildren().addAll(btSpin, btPlayAgain, btTrials);
     		
-    		BorderPane pane = new BorderPane();
+    		
     		pane.setCenter(hBox);
     		pane.setBottom(hBtnBox);
     		BorderPane.setAlignment(btSpin, Pos.CENTER);
