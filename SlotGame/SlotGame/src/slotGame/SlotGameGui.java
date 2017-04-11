@@ -108,7 +108,7 @@ public class SlotGameGui extends Application {
     		hBtnBox.setAlignment(Pos.CENTER);
     		hBtnBox.setPadding(new Insets(5,0,5,0));
 
-    		Label counter = new Label("Trials until jackpot: "); 
+    		Label trials = new Label("Trials until jackpot: "); 
     		
     		
     		Button btSpin = new Button("Spin");
@@ -120,8 +120,6 @@ public class SlotGameGui extends Application {
     			hBox.getChildren().add(new ImageView("image/" + list.get(1) + ".png"));
     			hBox.getChildren().add(new ImageView("image/" + list.get(2) + ".png"));
 
-    			
-    			 counter1++;
     		        
     		    });
     		
@@ -174,13 +172,13 @@ public class SlotGameGui extends Application {
     
     root.getChildren().addAll(btPlayAgain);
     root.setAlignment(Pos.CENTER);
-    root.getChildren().add(counter);
+    root.getChildren().add(trials);
 
     //scene 3 is created
     scene3 = new Scene(root, 600, 400, Color.AQUA); 
     
     
-    counter.setText("Trials: " + Integer.toString(counter));
+    trials.setText("Trials: " + Integer.toString(counter));
     counter();
     
     
