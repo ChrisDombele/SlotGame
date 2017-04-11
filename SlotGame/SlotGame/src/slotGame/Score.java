@@ -1,4 +1,5 @@
 package slotGame;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -7,6 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
 public class Score extends Application {
 	private int counter = 0;
 	private Label label = new Label("Trials: ");
@@ -48,4 +50,6 @@ public class Score extends Application {
 	    //System.out.println(counter);
 
 	}
-	}
+}
+	
+	
