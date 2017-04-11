@@ -23,18 +23,22 @@ import javafx.stage.Stage;
 public class SlotGameGui extends Application {
 	
 	private int counter = 0;
-	private Label label = new Label("Trials: ");
     Stage  stage1, stage2, stage3, window;
     Scene scene1, scene2, scene3;
+    
+    
+    public static void main(String[] args) {
+		Application.launch(args);
+	}
     
    /*
     * Main Screen
     */
+    
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
-        window.setTitle("Slot Game - Main Menu");
 
         //GridPane with 10px padding around edge
         GridPane grid = new GridPane();
@@ -69,6 +73,7 @@ public class SlotGameGui extends Application {
         //Add everything to grid
         grid.getChildren().addAll(amountLabel, gameLabel, creditsLabel, amountInput, playButton);
         
+        //scene 1 is created
         Scene scene1 = new Scene(grid, 552, 300);
         
         /*
@@ -90,7 +95,7 @@ public class SlotGameGui extends Application {
     		
     		java.util.Collections.shuffle(list);
 
-    		HBox hBox = new HBox(50);
+    		HBox hBox = new HBox(50); // space between pictures
     		hBox.setAlignment(Pos.CENTER);
     		hBox.setPadding(new Insets(0,0,0,0));
     		
@@ -117,13 +122,6 @@ public class SlotGameGui extends Application {
 //    			this is where the points calculator should go Eric
 
     		});
-    		
-    		Button btTrials = new Button("Trials till Jackpot");
-    		
-//    		btTrials.setOnAction(e -> {
-//    			window.setScene(scene3);
-//    		});
-
 
     		//This is where the SlotGame scene switches back to the main screen
     		Button btPlayAgain = new Button("Play Again");
@@ -132,7 +130,7 @@ public class SlotGameGui extends Application {
     			
     		});
     		
-    		hBtnBox.getChildren().addAll(btSpin, btPlayAgain, btTrials);
+    		
     		
     		BorderPane pane = new BorderPane();
     		pane.setCenter(hBox);
@@ -140,13 +138,17 @@ public class SlotGameGui extends Application {
     		BorderPane.setAlignment(btSpin, Pos.CENTER);
     		
 
-    		// Create a scene and place it in the stage
+    		// scene 2 is created
     		scene2 = new Scene(pane, 600, 400);
     		window.setScene(scene1); // Place the scene in the stage
     		window.show(); // Display the stage
     		
+    		Button btTrials = new Button("Trials");	
+    		btTrials.setOnAction(e -> {
+    			window.setScene(scene3);
+    		});
     		
-    	
+    		hBtnBox.getChildren().addAll(btSpin, btPlayAgain, btTrials);
     	
 	/*
      * End of gameMenu
@@ -156,69 +158,45 @@ public class SlotGameGui extends Application {
 	 * Start of Score
 	 */
     		
+    Label trials = new Label("Trials: ");
+    	
+    pane.setPrefSize(400,400);
 
-//    Pane pane = new Pane();
-//    pane.setPrefSize(400,400);
-//
-//    Button button = new Button("Trials till JackPot");
-//    HBox root = new HBox(5, pane);
-//
-//    button.setOnAction(e -> {
-//        label.setText("Trials: "+Integer.toString(counter));
-//        counter();
-//    });
-//    root.getChildren().add(button);
-//    label.relocate(0, 0); // You can put this label, wherever you want!
-//    root.getChildren().add(label);
-//
-//    scene3 = new Scene(root,1000, 800, Color.AQUA);
-//    window.setScene(scene1);
-//    stage3.setTitle("ButtonSmash!");
-//    window.show();
-//
-//
-//}
-//
-//
-//	public void counter(){
-//    counter++;
-//    //System.out.println(counter);
-//
-}
-		
-    public static void main(String[] args) {
-		Application.launch(args);
-	}
+    Button button4 = new Button("Trials till JackPot");
+    
+    HBox root = new HBox(50);
+
+    button4.setOnAction(e -> {
+        trials.setText("Trials: "+Integer.toString(counter));
+        counter();
+    });
+    root.getChildren().add(button4);
+    trials.relocate(0, 0); // You can put this label, wherever you want!
+    root.getChildren().add(trials);
+
+    //scene 3 is created
+    scene3 = new Scene(root, 600, 400, Color.AQUA); 
+    
+    
+    
+    
+    
+    window.setScene(scene1);
+    window.setTitle("Slot Game");
+    window.show();
+
+    }
+
+
+	
+    public void counter(){
+        counter++;
+        //System.out.println(counter);
+    		}
     
     
     }
 
-
-
-/*
- * package test;
-
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-public class Test extends Application {
-	
-	Stage window;
-	Scene scene1, scene2;
-	
-	public static void main(String[] args){
-		
-	
-	}
-
-	@Override
-	public void start(Stage primaryStage) throws Exception {
-		window = primaryStage;
-		
-	}
-}
- */
 
 
 
