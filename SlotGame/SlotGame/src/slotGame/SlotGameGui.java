@@ -108,6 +108,9 @@ public class SlotGameGui extends Application {
     		hBtnBox.setAlignment(Pos.CENTER);
     		hBtnBox.setPadding(new Insets(5,0,5,0));
 
+    		Label counter = new Label("Trials until jackpot: "); 
+    		
+    		
     		Button btSpin = new Button("Spin");
     		btSpin.setOnAction(e -> {
     			java.util.Collections.shuffle(list);
@@ -118,14 +121,18 @@ public class SlotGameGui extends Application {
     			hBox.getChildren().add(new ImageView("image/" + list.get(2) + ".png"));
 
     			
-    			
-//    			this is where the points calculator should go Eric
-
-    		});
+    			 counter1++;
+    		        
+    		    });
+    		
+    		
+    	
 
     		//This is where the SlotGame scene switches back to the main screen
     		Button btPlayAgain = new Button("Play Again");
     		btPlayAgain.setOnAction(e -> {
+    			
+    			
     			window.setScene(scene1);
     			
     		});
@@ -140,10 +147,8 @@ public class SlotGameGui extends Application {
 
     		// scene 2 is created
     		scene2 = new Scene(pane, 600, 400);
-    		window.setScene(scene1); // Place the scene in the stage
-    		window.show(); // Display the stage
     		
-    		Button btTrials = new Button("Trials");	
+    		Button btTrials = new Button("Score");	
     		btTrials.setOnAction(e -> {
     			window.setScene(scene3);
     		});
@@ -158,26 +163,25 @@ public class SlotGameGui extends Application {
 	 * Start of Score
 	 */
     		
-    Label trials = new Label("Trials: ");
+    
     	
-    pane.setPrefSize(400,400);
+//    pane.setPrefSize(400,400);
 
-    Button button4 = new Button("Trials till JackPot");
+//    Button button4 = new Button("Trials till JackPot");
     
     HBox root = new HBox(50);
 
-    button4.setOnAction(e -> {
-        trials.setText("Trials: "+Integer.toString(counter));
-        counter();
-    });
-    root.getChildren().add(button4);
-    trials.relocate(0, 0); // You can put this label, wherever you want!
-    root.getChildren().add(trials);
+    
+    root.getChildren().addAll(btPlayAgain);
+    root.setAlignment(Pos.CENTER);
+    root.getChildren().add(counter);
 
     //scene 3 is created
     scene3 = new Scene(root, 600, 400, Color.AQUA); 
     
     
+    counter.setText("Trials: " + Integer.toString(counter));
+    counter();
     
     
     
@@ -187,16 +191,14 @@ public class SlotGameGui extends Application {
 
     }
 
-
-	
     public void counter(){
         counter++;
         //System.out.println(counter);
     		}
+	
     
     
     }
 
-
-
-
+    
+    
