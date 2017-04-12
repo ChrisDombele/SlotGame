@@ -1,6 +1,7 @@
 package slotGame;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -26,6 +27,7 @@ public class Score extends Application {
 	    pane.setPrefSize(400,400);
 
 	    Button button = new Button("Trials till JackPot");
+	    button.setAlignment(Pos.BOTTOM_CENTER);
 	    HBox root = new HBox(5, pane);
 
 	    button.setOnAction(e -> {
@@ -33,12 +35,13 @@ public class Score extends Application {
 	        counter();
 	    });
 	    root.getChildren().add(button);
-	    label.relocate(0, 0); // You can put this label, wherever you want!
+//	    label.relocate(0, 0); // You can put this label, wherever you want!
 	    root.getChildren().add(label);
+	    root.setAlignment(Pos.CENTER_LEFT);
 
-	    Scene scene1 = new Scene(root,1000, 800, Color.AQUA);
+	    Scene scene1 = new Scene(root,600, 400, Color.AQUA);
 	    stage.setScene(scene1);
-	    stage.setTitle("ButtonSmash!");
+	    stage.setTitle("Score");
 	    stage.show();
 
 

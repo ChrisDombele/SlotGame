@@ -26,7 +26,6 @@ public class SlotGameGui extends Application {
     Stage  stage1, stage2, stage3, window;
     Scene scene1, scene2, scene3;
     
-    
     public static void main(String[] args) {
 		Application.launch(args);
 	}
@@ -34,7 +33,6 @@ public class SlotGameGui extends Application {
    /*
     * Main Screen
     */
-    
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -60,7 +58,7 @@ public class SlotGameGui extends Application {
         
         //amount input
         TextField amountInput = new TextField();
-        amountInput.setPromptText("0");
+        
         GridPane.setConstraints(amountInput, 2, 5);
 
         //Play Button
@@ -68,7 +66,11 @@ public class SlotGameGui extends Application {
         GridPane.setConstraints(playButton, 2, 6);
         GridPane.setHalignment(playButton,HPos.CENTER);
         GridPane.setValignment(playButton,VPos.BOTTOM);
-        playButton.setOnAction(e -> window.setScene(scene2));
+        playButton.setOnAction(e -> {
+        amountInput.commitValue();
+        window.setScene(scene2);
+        
+        });
 
         //Add everything to grid
         grid.getChildren().addAll(amountLabel, gameLabel, creditsLabel, amountInput, playButton);
@@ -109,7 +111,9 @@ public class SlotGameGui extends Application {
     		hBtnBox.setPadding(new Insets(5,0,5,0));
 
     		Label trials = new Label("Trials until jackpot: "); 
-    		
+    		Label creditsDisplay = new Label("Credits: " + "20");
+    		hBox.getChildren().addAll(creditsDisplay);
+//    		credits = amountInput;
     		
     		Button btSpin = new Button("Spin");
     		btSpin.setOnAction(e -> {
@@ -120,7 +124,9 @@ public class SlotGameGui extends Application {
     			hBox.getChildren().add(new ImageView("image/" + list.get(1) + ".png"));
     			hBox.getChildren().add(new ImageView("image/" + list.get(2) + ".png"));
 
-    		        
+    		    btSpin.setText("Spins: " + Integer.toString(counter));    
+    			counter();
+    			
     		    });
     		
     		
@@ -146,12 +152,15 @@ public class SlotGameGui extends Application {
     		// scene 2 is created
     		scene2 = new Scene(pane, 600, 400);
     		
+//    		credits.setText("credits: "  );
+    		
     		Button btTrials = new Button("Score");	
     		btTrials.setOnAction(e -> {
+    			counter = 0;
     			window.setScene(scene3);
     		});
     		
-    		hBtnBox.getChildren().addAll(btSpin, btPlayAgain, btTrials);
+    		hBtnBox.getChildren().addAll(btSpin, btPlayAgain, btTrials, creditsDisplay);
     	
 	/*
      * End of gameMenu
@@ -178,7 +187,7 @@ public class SlotGameGui extends Application {
     scene3 = new Scene(root, 600, 400, Color.AQUA); 
     
     
-    trials.setText("Trials: " + Integer.toString(counter));
+    trials.setText("Credits Left: " + "13" /*Integer.toString(counter)*/);
     counter();
     
     
@@ -197,6 +206,8 @@ public class SlotGameGui extends Application {
     
     
     }
+
+// that is not healthy!!!!!! it looks like death!!!! 
 
     
     
