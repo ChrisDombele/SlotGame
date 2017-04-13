@@ -1,5 +1,6 @@
 package slotGame;
 
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -58,7 +59,7 @@ public class gameMenu extends Application {
 		
 		Button btPlayAgain = new Button("Play Again");
 		btPlayAgain.setOnAction(e -> {
-			//This is where the SlotGame scene switches back to the main screen
+			
 			
 		});
 		

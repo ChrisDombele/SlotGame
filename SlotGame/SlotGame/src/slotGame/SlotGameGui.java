@@ -191,10 +191,10 @@ public class SlotGameGui extends Application {
     counter();
     
     
-    
     window.setScene(scene1);
     window.setTitle("Slot Game");
     window.show();
+   
 
     }
 
@@ -206,8 +206,6 @@ public class SlotGameGui extends Application {
     
     
     }
-
-// that is not healthy!!!!!! it looks like death!!!! 
 
     
     
